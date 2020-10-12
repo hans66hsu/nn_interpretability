@@ -81,6 +81,6 @@ An example usage of a particular interpretability method can be found in the cor
 [12] Avanti Shrikumar, Peyton Greenside, and Anshul Kundaje. Learning important features throughpropagating activation differences, 2017. | [Paper](https://arxiv.org/pdf/1704.02685.pdf)   
 [13] Alexander Mordvintsev, Christopher Olah, and Mike Tyka. Inceptionism: Going deeper intoneural networks, 2015. | [Paper](https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html)  
 [14] Yarin Gal and Zoubin Ghahramani. Dropout as a bayesian approximation: Representing modeluncertainty in deep learning, 2015. | [Paper](https://arxiv.org/pdf/1506.02142.pdf)  
-[15] Murat Sensoy, Lance Kaplan, and Melih Kandemir.  Evidential deep learning to quantify classifi-cation uncertainty, 2018. | [Paper](https://arxiv.org/pdf/1806.01768.pdf)
+[15] Murat Sensoy, Lance Kaplan, and Melih Kandemir.  Evidential deep learning to quantify classifi-cation uncertainty, 2018. | [Paper](https://arxiv.org/pdf/1806.01768.pdf)  
 [16] Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q. Weinberger. On calibration of modern neuralnetworks, 2017.
  | [Paper](http://proceedings.mlr.press/v70/guo17a/guo17a.pdf)  
