@@ -1,0 +1,7 @@
+matplotlib==3.3.0
+torch==1.5.0+cpu
+torchvision==0.6.0+cpu
+pillow==6.2.1
+numpy==1.18.2
+scipy==1.5.2
+tqdm==4.45.0
