@@ -70,10 +70,13 @@ The main implementation can be found in the `nn_interpretability` package. We al
         <td width="33%" align="center">VGG19 Layer:25 Filter: 150</td>
    </tr>
     <tr>
-        <td width="33%" align="center"><img src="./assets/am.png"></td>
+        <td width="33%" align="center"><img src="./assets/castle_dream.jpg"></td>
         <td width="33%" align="center"><img src="./assets/castle_dream_25_final.jpg"></td>
         <td width="33%" align="center"><img src="./assets/castle_dream_25_150_final.jpg"></td>   
    </tr>
+  </tbody>
+</table>
+
 ## Setup
 The main deliverable of this repository is the package `nn_interpretability`, which entails every implementation of a NN interpretability method that we have done as part of the course. It can be installed and used as a library in any project. In order to install it one should clone this repository and execute the following command:
 ```
