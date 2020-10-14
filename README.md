@@ -70,7 +70,7 @@ The main implementation can be found in the `nn_interpretability` package. We al
         <td width="33%" align="center">VGG19 Layer:25 Filter: 150</td>
    </tr>
     <tr>
-        <td width="33%" align="center"><img src="./assets/castle_dream.jpg"></td>
+        <td width="33%" align="center"><img src="./data/castle.jpg"></td>
         <td width="33%" align="center"><img src="./assets/castle_dream_25_final.jpg"></td>
         <td width="33%" align="center"><img src="./assets/castle_dream_25_150_final.jpg"></td>   
    </tr>
@@ -87,6 +87,27 @@ After that, the package can be used anywhere by importing it:
 import nn_interpretability as nni
 ```
 An example usage of a particular interpretability method can be found in the corresponding Jupyter Notebook as outlined below. We also prepared a general demonstration of the developed package in this [Jupyter Notebook.](./14.Demo.ipynb)
+
+<table  border=0 width="50px" >
+  <tbody>
+    <tr>
+        <td width="30%" align="center">Original Image</td>
+        <td width="70%" align="center"><img src="./data/bike.jpg"></td>
+   </tr>
+    <tr>
+        <td width="30%" align="center">LRP Composite</td>
+        <td width="70%" align="center"><img src="./assets/bike_lrp.png"></td>
+   </tr>
+    <tr>
+        <td width="30%" align="center">Guided Backpropagation</td>
+        <td width="70%" align="center"><img src="./assets/bike_guided.png"></td>
+   </tr>
+    <tr>
+        <td width="30%" align="center">DeepLIFT RevealCancel</td>
+        <td width="70%" align="center"><img src="./assets/assets/bike_deeplift.png"></td>
+   </tr>
+  </tbody>
+</table>
 
 **Note:** The package assume that layers of the model are constructed inside containers(e.g. features and classifier). This setting is due to the structure of the pretrained models from the model zoo. You could use `torch.nn.Sequential` or `torch.nn.ModuleList` to achieve this on your own model.
 
