@@ -91,20 +91,20 @@ An example usage of a particular interpretability method can be found in the cor
 <table  border=0 width="50px" >
   <tbody>
     <tr>
-        <td width="30%" align="center">Original Image</td>
-        <td width="70%" align="center"><img src="./data/bike.jpg"></td>
+        <td width="30%" align="center">Image classified as tandem bicycle by pretrained VGG16</td>
+        <td width="70%" align="center"><img width="400" height="400" src="./data/bike.jpg" ></td>
    </tr>
     <tr>
         <td width="30%" align="center">LRP Composite</td>
-        <td width="70%" align="center"><img src="./assets/bike_lrp.png"></td>
+        <td width="70%" align="center"><img width="400" height="400" src="./assets/bike_lrp.png"></td>
    </tr>
     <tr>
         <td width="30%" align="center">Guided Backpropagation</td>
-        <td width="70%" align="center"><img src="./assets/bike_guided.png"></td>
+        <td width="70%" align="center"><img width="400" height="400" src="./assets/bike_guided.png"></td>
    </tr>
     <tr>
         <td width="30%" align="center">DeepLIFT RevealCancel</td>
-        <td width="70%" align="center"><img src="./assets/assets/bike_deeplift.png"></td>
+        <td width="70%" align="center"><img width="400" height="400" src="./assets/bike_deeplift.png"></td>
    </tr>
   </tbody>
 </table>
