@@ -6,13 +6,74 @@ Pytorch implementation of various neural network interpretability methods and ho
 
 The main implementation can be found in the `nn_interpretability` package. We also provide every method an accompanied Jupyter Notebook to demonstrate how we can use the `nn_interpretability` package in practice. Some of the methods are showcased together in one notebook for better comparison. Next to the interpretability functionality, we have defined a repository for models we trained and additional functionality for loading and visualizing data and the results from the interpretability methods. Furthermore, we have implemented uncertainty techniques to observe the behavior of interpretability methods under stochastical settings.
 
-|Activation Maximization    |AM in codespace (GAN)      | AM in codespace (DCGAN)   |  DeConvNet |
-|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-|![](./assets/am.png)       |  ![](./assets/am_gan.png) |  ![](./assets/am_dcgan.png)|  ![](./assets/deconv.png)|
-|Vallina Backpropagation   |Guided Backpropagation      | Integrated Gradients   |  SmoothGrad |
-|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-|![](./assets/backprop.png)       |  ![](./assets/guidedbackprop.png) |  ![](./assets/integrated.png)|  ![](./assets/smooth.png)|
+<table  border=0 width="50px" >
+  <tbody>
+    <tr>
+        <td width="25%" align="center"><strong>Activation Maximization</strong></td>
+        <td width="25%" align="center"><strong>AM in codespace (GAN)</strong></td>
+        <td width="25%" align="center"><strong>AM in codespace (DCGAN)</strong></td>
+        <td width="25%" align="center"><strong>DeConvNet</strong></td>
+   </tr>
+    <tr>
+        <td width="25%" align="center"><img src="./assets/am.png"></td>
+        <td width="25%" align="center"><img src="./assets/am_gan.png"></td>
+        <td width="25%" align="center"><img src="./assets/am_dcgan.png"></td>   
+        <td width="25%" align="center"><img src="./assets/deconv.png"></td>
+   </tr>
+    <tr>
+        <td width="25%" align="center"><strong>Vallina Backpropagation</strong></td>
+        <td width="25%" align="center"><strong>Guided Backpropagation</strong></td>
+        <td width="25%" align="center"><strong>Integrated Gradients</strong></td>
+        <td width="25%" align="center"><strong>SmoothGrad</strong></td>
+   </tr>
+    <tr>
+        <td width="25%" align="center"><img src="./assets/backprop.png"></td>
+        <td width="25%" align="center"><img src="./assets/guidedbackprop.png"></td>
+        <td width="25%" align="center"><img src="./assets/integrated.png"></td>   
+        <td width="25%" align="center"><img src="./assets/smooth.png"></td>
+   </tr>
+  </tbody>
+    <tr>
+        <td width="25%" align="center"><strong>Simple Taylor Decomposition</strong></td>
+        <td width="25%" align="center"><strong>Deep Taylor Decomposition</strong></td>
+        <td width="25%" align="center"><strong>LRP-0</strong></td>
+        <td width="25%" align="center"><strong>LRP-ε</strong></td>
+   </tr>
+    <tr>
+        <td width="25%" align="center"><img src="./assets/std.png"></td>
+        <td width="25%" align="center"><img src="./assets/dtd.png"></td>
+        <td width="25%" align="center"><img src="./assets/lrp0.png"></td>   
+        <td width="25%" align="center"><img src="./assets/lrpeps.png"></td>
+   </tr>
+  </tbody>
+    <tr>
+        <td width="25%" align="center"><strong>DeepLIFT Rescale</strong></td>
+        <td width="25%" align="center"><strong>DeepLIFT RevealCancel</strong></td>
+        <td width="25%" align="center"><strong>CAM</strong></td>
+        <td width="25%" align="center"><strong>Grad-CAM</strong></td>
+   </tr>
+    <tr>
+        <td width="25%" align="center"><img src="./assets/deeplift_rescale.png"></td>
+        <td width="25%" align="center"><img src="./assets/deeplift_revealcancel.png"></td>
+        <td width="25%" align="center"><img src="./assets/cam.png"></td>   
+        <td width="25%" align="center"><img src="./assets/gradcam.png"></td>
+   </tr>
+  </tbody>
+</table>
 
+### DeepDream
+<table  border=0 width="50px" >
+  <tbody>
+    <tr>
+        <td width="33%" align="center">Original Image</td>
+        <td width="33%" align="center">VGG19 Layer:25</td>
+        <td width="33%" align="center">VGG19 Layer:25 Filter: 150</td>
+   </tr>
+    <tr>
+        <td width="33%" align="center"><img src="./assets/am.png"></td>
+        <td width="33%" align="center"><img src="./assets/castle_dream_25_final.jpg"></td>
+        <td width="33%" align="center"><img src="./assets/castle_dream_25_150_final.jpg"></td>   
+   </tr>
 ## Setup
 The main deliverable of this repository is the package `nn_interpretability`, which entails every implementation of a NN interpretability method that we have done as part of the course. It can be installed and used as a library in any project. In order to install it one should clone this repository and execute the following command:
 ```
