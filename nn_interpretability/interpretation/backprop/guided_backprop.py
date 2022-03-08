@@ -3,9 +3,11 @@ from torch import nn
 from torch.nn import Module
 from torchvision.transforms import transforms
 import copy
+from collections.abc import Iterable
 
 from nn_interpretability.interpretation.backprop.backprop_base import BackPropBase
 from nn_interpretability.interpretation.backprop.smooth_grad import add_noise
+
 
 class GuidedBackprop(BackPropBase):
     """
@@ -14,8 +16,9 @@ class GuidedBackprop(BackPropBase):
     by Springenberg et al.
 
     https://arxiv.org/pdf/1412.6806.pdf
-    """    
-    def __init__(self, model: Module, classes: [str], preprocess: transforms.Compose, 
+    """
+
+    def __init__(self, model: Module, classes: [str], preprocess: transforms.Compose,
                  smooth=False, noise_level=0.2, number_samples=100):
         """
         :param model: The model the decisions of which needs to be interpreted.
@@ -24,7 +27,7 @@ class GuidedBackprop(BackPropBase):
         :param smooth: Switch for combining with SmoothGrad.
         :param noise_level: Defines the noise level of the additional Gaussian noise.
         :param number_samples: Number of samples for SmoothGrad.
-        """           
+        """
         super(GuidedBackprop, self).__init__(model, classes, preprocess)
         self.model_guidedback = copy.deepcopy(model)
         self.smooth = smooth
@@ -36,13 +39,18 @@ class GuidedBackprop(BackPropBase):
         # Guided Backpropagation Rule
         for name, sequential_modules in self.model_guidedback.named_children():
             if not isinstance(sequential_modules, nn.AdaptiveAvgPool2d):
+                if not isinstance(sequential_modules, Iterable):
+                    # If the layer is not a sequential model we wrapped with a list to be able
+                    # to iterate it
+                    sequential_modules = [sequential_modules]
+
                 for module in sequential_modules:
                     if isinstance(module, nn.ReLU):
                         forward_hook, relu_map = self.positve_activations(relu_map)
                         module.register_forward_hook(forward_hook)
                         module.register_backward_hook(self.positive_gradients(relu_map))
-        
-        if self.smooth == False:
+
+        if not self.smooth:
             # Guided Backpropagation
             self.gradient = self.generate_gradient(self.model_guidedback, x)
         else:
@@ -55,20 +63,18 @@ class GuidedBackprop(BackPropBase):
 
         return self.gradient
 
-
-    def positve_activations(self, activation_map):   
+    def positve_activations(self, activation_map):
         def gudiedbackprop_forward(module, input, output):
             activation = output.detach().clone()
             activation[activation > 0] = 1
-            activation_map.append(activation)        
-        
+            activation_map.append(activation)
+
         return gudiedbackprop_forward, activation_map
 
-
-    def positive_gradients(self, a_map):  
-        def guidedbackprop_backward(module, grad_in, grad_out):       
+    def positive_gradients(self, a_map):
+        def guidedbackprop_backward(module, grad_in, grad_out):
             activation = a_map.pop()
             positive_grad = grad_out[0].clamp(min=0.)
-            return (activation * positive_grad, )    
-    
+            return (activation * positive_grad,)
+
         return guidedbackprop_backward
